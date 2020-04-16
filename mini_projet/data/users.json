@@ -1,0 +1,18 @@
+    [
+        {
+            "prenom":"FATOU",
+            "nom":"NIANG",
+            "login":"fatima", 
+            "password":"root",
+            "photo": "public/Images/img5.jpg",
+            "profil":"admin"
+        },
+        {
+            "nom":"Ndiaye", 
+            "prenom":"Maguette",
+            "login":"magui", 
+            "password":"root", 
+            "photo": "../Images/img5.jpg",
+            "profil":"joueur"
+        }
+    ]
