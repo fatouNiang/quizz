@@ -3,11 +3,15 @@ $erreur="";
 if (isset($_POST['btn_submit'])) {
    $login=$_POST['login'];
    $pwd=$_POST['pwd'];
-   $result=connexion($login, $pwd);
-    if($result=="error"){
-        $erreur= "Login ou mot de passe incorrecte";
-    }else{
-        header("Location:index.php?lien=".$result);
+   if(empty($login) && empty($pwd)){
+       $erreur='login et mot de passe obligatoire';
+   }else{
+        $result=connexion($login, $pwd);
+        if($result=="error"){
+            $erreur= "Login ou mot de passe incorrecte";
+        }else{
+            header("Location:index.php?lien=".$result);
+        }
     }
 }
 ?>
@@ -29,7 +33,7 @@ if (isset($_POST['btn_submit'])) {
             </div>
             <div class="input-form">
                <button type="submit" class="btn-form" name="btn_submit"> connexion</button>
-               <a href="page/inscription.php" class="link-form">S'inscrire pour jouer ?</a>
+               <a href="index.php?lien=inscription" class="link-form">S'inscrire pour jouer ?</a>
             </div>
         </form>
     </div>

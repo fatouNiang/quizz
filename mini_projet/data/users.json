@@ -1,18 +1,1 @@
-    [
-        {
-            "prenom":"FATOU",
-            "nom":"NIANG",
-            "login":"fatima", 
-            "password":"root",
-            "photo": "public/Images/img5.jpg",
-            "profil":"admin"
-        },
-        {
-            "nom":"Ndiaye", 
-            "prenom":"Maguette",
-            "login":"magui", 
-            "password":"root", 
-            "photo": "../Images/img5.jpg",
-            "profil":"joueur"
-        }
-    ]
+[{"nom":"FATOU","prenom":"NIANG","login":"fatima","password":"root","photo":"Images\/profil1.jpeg","profil":"admin"},{"nom":"Ndiaye","prenom":"Maguette","login":"magui","password":"root","photo":"Images\/profil1.jpeg","profil":"joueur"},{"nom":"nabou","prenom":"ndiaye","login":"bame","pwd":"bame","pwdConfirm":"bame"},{"nom":"Niang","prenom":"absa","login":"absis","pwd":"root","pwdConfirm":"root"},{"nom":"fall","prenom":"satou","login":"sacha","pwd":"root","pwdConfirm":"root","avatar":null},{"nom":"diop","prenom":"habibatou","login":"haby","pwd":"root","pwdConfirm":"root","avatar":null},{"nom":"niang","prenom":"ndeye sokhna","login":"atana","pwd":"root","pwdConfirm":"root","avatar":null},{"nom":"coraa","prenom":"sarr","login":"big","pwd":"root","pwdConfirm":"root","avatar":null}]

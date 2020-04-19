@@ -27,7 +27,9 @@ body{
     background-image: url('../Images/img-bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    height:650px;
+    height:750px;
+    margin: 0px;
+    padding: 0px;
 }
 /* page connexion */
 
@@ -95,7 +97,7 @@ body{
     border: 1px solid darkturquoise;
 }
 .link-form{
-    margin-left: 25px;
+    margin-left: 5px;
     font-size: 20px;
     font-weight: bold;
     color: silver;
@@ -103,3 +105,302 @@ body{
 }
 /* la partie inscription d'un joueur */
 
+#cadre{
+    margin: auto;
+    background-color: white;
+    width: 80%;
+    height: 650px;
+}
+h1{
+    font-size: 25px;
+    font-weight: bold;
+    color: #464646;
+    margin-left: 10%;
+}
+p, label{
+    font-size: 20px;
+    color: #929292;
+    margin-left: 10%;
+}
+.form{
+    width: 50%;
+    border-top: 2px solid #929292;
+}
+.input{
+    width: 70%;
+    height: 7%;
+    margin-left: 10%;
+}
+.bouton{
+   background-color: #51bfd0;
+   color: white;
+   font-size: 20px;
+   margin-right: -12%;
+   border: none;
+   padding: 3%;
+}
+.btn-fichier{
+    float: right;
+    margin-top: 2%;
+}
+.btn-creerCompt{
+    margin-left: 40%;
+    margin-top: 10%;
+}
+.partiAvatar{
+    float: right;
+    border: 3px solid #51bfd0;
+    background-image: url("../Images/img5.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: -52%;
+    margin-right: 100px;
+    padding: 5%;
+    width: 120px;
+    height: 120px;
+    border-radius: 150px;
+}
+
+.nom{
+    float: right;
+    margin-right: 8%;
+    margin-top: -25%;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+/* la partie administration des quizz  accueil admin*/
+
+.cadre{
+    position: relative;
+    top: 12px;
+    margin: 13px;
+    background: #eeeeee;
+    border-radius: 2%;
+    width: 97%;
+    height: 730px;
+    margin-top: 1%;
+}
+.header_cadre{ 
+    width: 100%;
+    height: 12%;
+    background-color: #51bfd0;
+}
+.Pgauche{
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 40px;
+    margin-left: 320px;
+}
+.Pdroite{
+    float: right;
+    margin-top: -90px;
+    padding: 10px;
+}
+.btn_decon{
+padding: 10px;
+background-color: darkturquoise;
+font-size: 20px;
+font-weight: bold;
+border-radius: 5px;
+border: 1px solid darkturquoise;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.gauche{
+    width: 35%;
+    height: 400px;
+    margin-top: 60px;
+    margin-left: 10px;
+    border-radius: 5px;
+    background-color: white;
+}
+.entete{
+    background: linear-gradient(0deg, #51bfd0, white);
+    width: 100%;
+    height: 130px;
+    font-size: 20px;
+    color: white;
+    font-weight: bolder;
+    line-height: 60px;   
+    border-radius: 5px;
+}
+.avatar{
+    float: left;
+    border: 1px solid silver;
+    margin-top: -2px;
+    margin-left: 10%;
+    padding: 3%;
+    width: 100px;
+    height: 100px;
+    border-radius: 75px;
+}
+.photo{
+    width: 100%;
+}
+.liste{
+    width: 96%;
+    border-radius: 5px;
+    height: 250px;
+    margin-top: 10px;
+}
+.li{
+    width: 95%;
+    height: 55px;
+}
+.li_1{
+    color: #818181;
+    font-size: 20px;
+    margin-left: 20px;
+}
+.icone1{
+    background-image: url("../Icônes/ic-liste.png");
+    background-repeat: no-repeat;
+    background-size:30px;
+    width: 5%;
+    height: 30px; 
+    position: absolute;
+    margin-left: 300px;
+    margin-top: -20px;
+}
+.icone2{
+    background-image: url("../Icônes/ic-ajout.png");
+    background-repeat: no-repeat;
+    background-size:30px;
+    width: 5%;
+    height: 30px; 
+    position: absolute;
+    margin-left: 300px;
+    margin-top: -20px;
+}
+.icone3{
+    background-image: url("../Icônes/ic-liste-active.png");
+    background-repeat: no-repeat;
+    background-size:30px;
+    width: 5%;
+    height: 30px; 
+    position: absolute;
+    margin-left: 300px;
+    margin-top: -20px;
+}
+.icone4{
+    background-image: url("../Icônes/ic-ajout.png");
+    background-repeat: no-repeat;
+    background-size:30px;
+    width: 5%;
+    height: 30px; 
+    position: absolute;
+    margin-left: 300px;
+    margin-top: -20px;
+}
+.droite{
+    float: right;
+    width: 55%;
+    height: 500px;
+    background-color: white;
+    margin-top: -450px;
+    margin-right: 100px;
+    border-radius: 5px;
+}
+/* la partie liste des joueurs */
+
+.titre{
+    color: #818181;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 70px;
+    margin-top: 5%;
+}
+.Listjoueur{
+    border: 1px solid darkturquoise;
+    border-radius: 5%;
+    width: 80%;
+    height: 300px;
+    margin: auto;
+    margin-top: 5%;
+}
+table thead tr td{
+    color: #818181;
+    font-weight: bold;
+    font-size: 30px;
+}
+table tbody tr td{
+    color: #818181;
+    font-size: 20px; 
+}
+.btnSuiv{
+    float: right;
+}
+button{
+    background-color: darkturquoise;
+    padding: 5%;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 15px;
+    margin-right: 150px;
+    margin-top: 10px;
+}
+/* partie creation d'un admin */
+
+h1{
+    font-size: 25px;
+    font-weight: bold;
+    color: #464646;
+    margin-left: 10%;
+}
+p, label{
+    font-size: 20px;
+    color: #929292;
+    margin-left: 10%;
+}
+.form{
+    width: 50%;
+    border-top: 2px solid #929292;
+}
+.input{
+    width: 70%;
+    height: 7%;
+    margin-left: 10%;
+}
+.bouton{
+   background-color: #51bfd0;
+   color: white;
+   font-size: 20px;
+   margin-right: -12%;
+   border: none;
+   padding: 3%;
+}
+.btn-fichier{
+    float: right;
+    margin-top: 2%;
+}
+.btn-creerCompt{
+    margin-left: 40%;
+    margin-top: 10%;
+}
+.partiAvatarAdmin{
+    float: right;
+    border: 3px solid #51bfd0;
+    background-image: url("../Images/img5.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: -65%;
+    margin-right: 100px;
+    padding: 5%;
+    width: 120px;
+    height: 120px;
+    border-radius: 150px;
+}
+
+.nom{
+    float: right;
+    margin-right: 8%;
+    margin-top: -25%;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
