@@ -1,9 +1,15 @@
 <?php
 
+function getData($file="users"){
+    $data= file_get_contents("./data/".$file.".json");
+    $data= json_decode($data, true);
+    return $data;
+}
+
 function connexion($login,$pwd){
     $users=getData();
     foreach ($users as $key => $user) {
-        if ($user["login"]===$login && $user["password"]===$pwd) {
+        if ($user["login"]===$login && $user["pwd"]===$pwd) {
             $_SESSION['user']=$user;
             $_SESSION['statut']='login';
             if ($user['profil']==='admin') {
@@ -28,8 +34,7 @@ function deconnexion(){
     session_destroy();
 }
 function avatar(){
-    // if (isset($_File)) {
-
+    $erreur="";
         $fileName=$_FILES['avatar']['name'];
         $fileTmp=$_FILES['avatar']['tmp_name'];
         $fileType=$_FILES['avatar']['type'];
@@ -56,11 +61,6 @@ function avatar(){
     }
 // }
 
-function getData($file="users"){
-    $data= file_get_contents("./data/".$file.".json");
-    $data= json_decode($data, true);
-    return $data;
-}
 // inscrire un admin ou joueur
 
 function ADD_User($login){

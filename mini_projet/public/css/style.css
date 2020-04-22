@@ -27,7 +27,7 @@ body{
     background-image: url('../Images/img-bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    height:750px;
+    height:800px;
     margin: 0px;
     padding: 0px;
 }
@@ -147,6 +147,9 @@ p, label{
     margin-left: 40%;
     margin-top: 10%;
 }
+.tof{
+    width: 20%;
+}
 .partiAvatar{
     float: right;
     border: 3px solid #51bfd0;
@@ -169,6 +172,157 @@ p, label{
     font-weight: bold;
     color: black;
 }
+/* partie jeux          page d'accuiel du joueur */
+
+#frame{
+    margin: auto;
+    background: #eeeeee;
+    border-radius: 2%;
+    width: 90%;
+    height: 730px;
+    margin-top: -1%;
+}
+.headerframe{
+    width: 100%;
+    height: 15%;
+    background-color: #51bfd0;
+}
+.avatar{
+    float: left;
+}
+p{
+    font-weight: bolder;
+    color: white;
+}
+.haut{
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bolder;
+    margin-right: 72px;
+    margin-top: 10px;
+}
+
+.bdecon{
+    background-color:#00BCD4;
+    float: right;
+    padding: 1%;
+    font-size: 15px;
+    margin-right: 20px;
+    border: none;
+}
+a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+/* sous cadre */
+.sousCadre{
+    margin: auto;
+    margin-top: 1%;
+    background-color: white;
+    width: 97%;
+    height: 540px;
+    border-radius: 2%;
+}
+.sousCadre1{
+    width: 60%;
+    height: 500px;
+    border: #51bfd0 1px solid;
+    margin-top: 2%;
+    margin-left: 1%;
+    border-radius: 2%;
+}
+.question{
+    margin: auto;
+    background-color: #eeeeee;
+    border-bottom: 1px #00BCD4 solid;
+    border-right: 1px #00BCD4 solid;
+    width: 90%;
+    height: 25%;
+    margin-top: 2%;
+}
+.point{
+    float: right;
+    background-color: #eeeeee;
+    width: 10%;
+    height: 10%;
+    margin-top: 5%;
+    margin-right: 10%;
+}
+.forms{
+    width: 100%;
+    height: 30%;
+    margin-top: 15%;
+}
+.btn{
+    width: 100%;
+    height: 10%;
+    margin-top: 2%;
+}
+.precedent{
+    float: left;
+    margin-left: 10%;
+    background-color: gray;
+}
+.suivant{
+    float: right;
+   background-color: #00BCD4;
+   margin-right: 10%;
+}
+.dep{
+    color: white;
+    background-color: #00BCD4;
+    padding: 15%;
+    border: none;
+    font-size: 20px;
+    
+}
+/* sous cadre 2 */
+
+.sousCadre2{
+    float: right;
+    border: 1px solid silver;
+    width: 35%;
+    height: 350px;
+    margin-top: -42%;
+}
+.titreSousCadre2{
+    color: #818181;
+    font-size: 20px;
+    margin-left: 20px;
+}
+.TS{
+    float: left;
+    width: 49%;
+    height: 10%;
+    border: silver 1px solid;
+    
+}
+.a{
+    color: #818181;
+    margin-left: 30px;
+}
+.b{
+    color: darkturquoise;
+    margin-left: 30px;
+}
+.MS{
+    float: right;
+    width: 49%;
+    height: 10%;
+}
+.MonScore{
+    margin-right: 50px;
+    float: left;
+    font-size: 20px;
+}
+.tableScore{
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+}
+
 /* la partie administration des quizz  accueil admin*/
 
 .cadre{
@@ -178,7 +332,7 @@ p, label{
     background: #eeeeee;
     border-radius: 2%;
     width: 97%;
-    height: 730px;
+    height: 780px;
     margin-top: 1%;
 }
 .header_cadre{ 
@@ -299,7 +453,7 @@ a{
 .droite{
     float: right;
     width: 55%;
-    height: 500px;
+    height: 630px;
     background-color: white;
     margin-top: -450px;
     margin-right: 100px;
@@ -312,15 +466,15 @@ a{
     font-weight: bold;
     font-size: 20px;
     margin-left: 70px;
-    margin-top: 5%;
+    margin-top: 3%;
 }
 .Listjoueur{
     border: 1px solid darkturquoise;
-    border-radius: 5%;
+    border-radius: 3%;
     width: 80%;
-    height: 300px;
+    height: 427px;
     margin: auto;
-    margin-top: 5%;
+    margin-top: 2%;
 }
 table thead tr td{
     color: #818181;
@@ -336,7 +490,7 @@ table tbody tr td{
 }
 button{
     background-color: darkturquoise;
-    padding: 5%;
+    padding: 1%;
     border: none;
     border-radius: 5px;
     color: white;
@@ -388,8 +542,8 @@ p, label{
     background-image: url("../Images/img5.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    margin-top: -65%;
-    margin-right: 100px;
+    margin-top: -35%;
+    margin-left: 300px;
     padding: 5%;
     width: 120px;
     height: 120px;
