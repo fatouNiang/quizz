@@ -2,12 +2,13 @@
 <?php
 is_connect();
 $data= getData();
+$user=$_SESSION['user'];
 ?>
         <div id="frame">
             <div class="headerframe">
-                <div class="avatar">
-                    <img src="<?= $_SESSION['user']['avatar'] ?>" alt="">
-                   <p> <?php echo $_SESSION['user']['prenom'].' '.$_SESSION['user']['nom']; ?></p>
+                <div class="profil">
+                    <div><img src="<?='./public/Images/' .$user['avatar']?>" alt="" class="userProfil"></div>
+                   <div class="p"> <?php echo $user['prenom'].' '.$user['nom']; ?></div>
                 </div>
                 <div class="haut">BIENVENU DANS LA PLATEFORME DE JEU QUIZZ<br>JOUER ET TESTER VOTRE NIVEAU DE CULTURE GENERALE</div>
                 <div class="deconnexion">
@@ -51,6 +52,8 @@ $data= getData();
                         }if ($url=='meilleurScore') {
                             include('meilleurScore.php');
                         }
+                    }else{
+                        include('topScore.php')
                     }
                     ?>
                 </div>

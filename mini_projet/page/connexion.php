@@ -21,15 +21,16 @@ if (isset($_POST['btn_submit'])) {
     </div>
     <div class="container_body">
         <form action="" method="post" id="form-connexion">
+        <div class="error-form" id="error-1"><?= $erreur ?></div>
             <div class="input-form">
                <div class="icon-form icon-form-login"></div>
                <input type="text" class="form-control" name="login" error="error-1" placeholder="login">
-               <div class="error-form" id="error-1"><?= $erreur ?></div>
+               
             </div>
             <div class="input-form">
                <div class="icon-form icon-form-pwd"></div>
                <input type="password" class="form-control" name="pwd" error="error-2" placeholder="password">
-               <div class="error-form" id="error-2"><?= $erreur ?></div>
+               <!-- <div class="error-form" id="error-2"><?= $erreur ?></div> -->
             </div>
             <div class="input-form">
                <button type="submit" class="btn-form" name="btn_submit"> connexion</button>
@@ -38,8 +39,8 @@ if (isset($_POST['btn_submit'])) {
         </form>
     </div>
 </div>
-<!-- <script>
-     const inputs= document.getElementByTagName("input");
+<script>
+     const inputs= document.getElementsByTagName("input");
         for(input of inputs){
              input.addEventListener("keyup", function(e){
                 if(e.target.hasAttribute("error")){
@@ -56,15 +57,14 @@ if (isset($_POST['btn_submit'])) {
             if(input.hasAttribute("error")){
                 var idDivError=input.getAttribute("error");
                      if(!input.value){
-                            document.getElementById(idDivError).innerText="Ce champs est obligatoire"
+                            document.getElementById(idDivError).innerText=" * Ce champs est obligatoire *"
                             error=true
-                     }
-                 
-             } 
-         }
+                    }
+            } 
+        }
  if(error){
      e.preventDefaut();
      return false;
  }
 })
-</script> -->
+</script>
