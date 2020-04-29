@@ -1,1 +1,52 @@
-[{"question":"dnzdhz","nbrPoint":"2","TypeReponse":"","reponse":"la ville"},{"question":"dnzdhz","nbrPoint":"2","TypeReponse":"","reponse":"la ville"}]
+[
+    {
+        "question": "RFGHTJ",
+        "nbrPoint": "2",
+        "TypeReponse": "simple",
+        "choixsimple": "moi",
+        "radio": "on"
+    },
+    {
+        "question": "RFGHTJ",
+        "nbrPoint": "2",
+        "TypeReponse": "simple",
+        "choixsimple": "moi",
+        "radio": "on"
+    },
+    {
+        "question": "qsdfghjk",
+        "nbrPoint": "5",
+        "TypeReponse": "texte",
+        "choixtext": "orange digital center"
+    },
+    {
+        "question": "azertyui",
+        "nbrPoint": "4",
+        "TypeReponse": "simple",
+        "choixsimple": "moi",
+        "radio": "on"
+    },
+    {
+        "question": "dfghjkl mxcvbn dfghj",
+        "nbrPoint": "8",
+        "TypeReponse": "multiple",
+        "choixmultiple": "clavier",
+        "checkbox": [
+            "on",
+            "on"
+        ]
+    },
+    {
+        "question": "yuuiioo",
+        "nbrPoint": "4",
+        "TypeReponse": "simple",
+        "choixsimple": "qsdfghjkl"
+    },
+    {
+        "question": "dfghjk",
+        "nbrPoint": "5",
+        "TypeReponse": "simple",
+        "choixsimple": "ey",
+        "radio": "on"
+    }
+]

@@ -96,4 +96,13 @@ if (isset($_POST['creer_compte'])){
 
             </div>
 </div>
+<script>
+var loadFile = function(event) {
+var output = document.getElementById('images');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+  };
+  </script>
 <script src="./public/js/app.js"></script>

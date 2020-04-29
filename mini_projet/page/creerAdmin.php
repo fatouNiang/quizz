@@ -47,7 +47,8 @@ if (isset($_POST['creer_compte'])){
                 }else{
                     $erreur='les mots de passe doivent etre  identique';
                 }
-            }else{
+            }
+            else{
                 $erreur='ce login existe deja';
             }
         }
@@ -66,7 +67,7 @@ if (isset($_POST['creer_compte'])){
                     <input type="text" name="prenom" placeholder="Wwww" id="prenom" error="error-2" class="input"><br>
                     <div class="error-form" id="error-2"></div>
                     <label for="">Login</label><br>
-                    <input type="text" name="login" placeholder="AaaaBBB" id="login" error="error-3"class="input"><br>
+                    <input type="text" name="login" placeholder="AaaaBBB" id="login" error="error-3" class="input"><br>
                     <div class="error-form" id="error-3"><?= $erreur?></div>
                     <label for="">Password</label><br>
                     <input type="password" name="pwd" placeholder="******" id="pwd" error="error-4" class="input"><br>
@@ -85,7 +86,7 @@ if (isset($_POST['creer_compte'])){
                 <!-- <img src="" class="avatar" alt=""> -->
                 <div class="nomAdmin">Avatar de l'administrateur</div>
             </div>
-            <!-- <script src="./public/js/app.js"></script> -->
+            <script src="./public/js/app.js"></script>
  <script>
 var loadFile = function(event) {
 var output = document.getElementById('images');

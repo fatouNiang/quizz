@@ -1,68 +1,154 @@
 <?php
 $message='';
-if(isset($_POST['enregistrer'])){
-    $question=$_POST['question'];
-    $nbrPoint=$_POST['nbrPoint'];
-    $TypeReponse=$_POST['TypeReponse'];
-    $reponse=$_POST['reponse'];
-    if(empty($question) && empty($nbrPoint) && empty($TypeReponse) && empty($reponse)){
-        $message='tous les champs sont obligatoires';
-    }else{
+ if(isset($_POST['enregistrer'])){
+    if(!empty($_POST) && $_POST['nbrPoint']>=1){
+        $tab=[];
+        unset($_POST['enregistrer']);
+        $tab=$_POST;
         $data=getQuestion();
-        if($nbrPoint<1){
-            $message='veuillez saisir un nbre superieur ou egale a 1';
-        }else{
-            $tabQuestion=[
-                'question'=>$question,
-                'nbrPoint'=>$nbrPoint,
-                'TypeReponse'=>$TypeReponse,
-                'reponse'=>$reponse
-            ];
-            if(!empty($tabQuestion)){
-                $data[]=$tabQuestion;
-                $data=json_encode($data);
-                file_put_contents("./data/question.json", $data);
-                echo'<p style="red">donnee enregistre avec succés</p>';
-            }
-        }
+        $data[]=$tab;
+        $data=json_encode($data);
+        file_put_contents("./data/question.json", $data);
+        echo'<p style="red">donnee enregistre avec succés</p>';
+    }else{
+        $message='Tous les champs sont obligatoires';
     }
 }
 ?>
 <div class="theme">PARAMETRER VOTRE QUESTION</div>
 <div class="bordure">
-<?=$message?>
+    
+    <!-- <p style="color:red" id="error"><?=$message?></p> -->
     <form action="" method="post" id="questionnaire"><br><br>
-    <div id="inputs">
-        <label for="" >questions</label>
-        <textarea name="question" id="" cols="50" rows="8" class="txtaera"></textarea><br>
-        <label for="">Nbre de Points</label>
-        <input type="number" class="inputNum" name="nbrPoint"><br>
-        <label for="">Type de reponse</label>
-        <select name="TypeReponse" id="">
-                <option value="">donnez le type votre reponse</option>
-                <option value="">choix simple</option>
-                <option value="">choix multiple</option>
-                <option value="">choix commentaire</option>
-        </select>    <img src="./public/Icônes/ic-ajout-réponse.png" alt="" style="width:50px; height:50px;"><br>
-        
-            <div class="row"> 
-                <label for="">Reponse 1</label>
-                <input type="text" name="reponse" id="" class="inputQ" >
-                <input type="submit" value="ajouter" class="h" onclick="onAddInput()">
+            <div>
+                <label for="" >questions</label>
+                <textarea name="question" id="question" cols="50" rows="8" error="error-1" class="txtaera"></textarea><br>
+                <div class="error-form" id="error-1"></div>
             </div>
-            <!-- <div class="row"> 
-                    <button type="submit" class="h">ajouter</button><input type="radio" class="inputChoix">
-            </div> -->
-        </div>
-        <!-- <input type="radio" class="inputChoix"> -->
-        <!-- <input type="checkbox" name="" id="" class="inputChoix"><img src="./public/Icônes/ic-supprimer.png" alt=""><br><br><br><br> -->
-      <div class=""> <input type="submit" value="enregistrer" class="enregistrer" name="enregistrer" id="enregistrer"></div> 
-
+            <div>
+                <label for="">Nbre de Points</label>
+                <input type="number"  min="1" value="" class="inputNum" id="nbrPoint" error="error-2" name="nbrPoint"><br>
+                <div class="error-form" id="error-2"></div>
+            </div>
+            <div id="inputs">
+                 <div class="row" id="row_0">
+                    <label for="">Type de reponse</label>
+                    <select name="TypeReponse" id="choix" class="champSelect" error="error-3">
+                        <option value="" selected>donnez le type votre reponse</option>
+                        <option value="simple">choix simple</option>
+                        <option value="multiple">choix multiple</option>
+                        <option value="texte">type texte</option>
+                    </select>
+                    <button type="button" style="border:none; background-color:white;" name="" id="" onclick="onAddInput()"><img src="./public/Icônes/ic-ajout-réponse.png" alt="" style="width:30px; height:30px;"></button>
+                    <div class="error-form" id="error-3"></div>
+                </div>
+            </div>
+            <input type="submit" value="enregistrer" class="enregistrer" name="enregistrer" id="enregistrer"> 
+        
     </form>
 </div>
 <script src="./public/js/question.js"></script>
-<!-- <script>
-function onAddInput(){
-    var divInputs
+<script>
+
+document.getElementById("questionnaire").addEventListener("submit",function(e){
+    var textaera = document.getElementById("question");
+    var nbrPoint = document.getElementById("nbrPoint");
+    if(!textaera.value){
+        error='veuiller renseigner une question';
+    }
+    if(!nbrPoint.value){
+        error='veuiller renseigner le nombre de point';
+    }
+ 
+if(error){
+     e.preventDefault();
+     document.getElementById("error").innerHTML= error;
+    return false
 }
-</script> -->
+
+});
+
+
+
+    // validation des champs
+// document.forms["questionnaire"].addEventListener("submit", function(e){
+//     var erreur
+//     var inputs = this;
+//     for(var i=0; i < inputs.length; i++){
+//         if (!inputs[i].value){
+//             erreur= "Veuillez remplir toutes les champs";
+//         }
+//     }
+// if(erreur){
+//     e.preventDefault();
+//     document.getElementById("erreur").innerHTML=erreur;
+//     return false;
+// }
+// // else{
+// //     alert("questionnaire enregistree !!");
+// // }
+// });
+// generation des champs
+    var nbrRow=0;
+         function onAddInput(){
+            nbrRow++;
+            var divInputs = document.getElementById('inputs');
+            var newInput = document.createElement('div');
+            var selectOption= document.getElementById("choix");
+            newInput.setAttribute('class','row');
+            newInput.setAttribute('id','row_'+nbrRow);
+            if(selectOption.value==='simple'){
+                newInput.innerHTML = `
+                    <label>reponse${nbrRow}</label>
+                    <input type="text" name="choixsimple" class="champInput">
+                    <input type="radio" name="radio" id="" class="inputChoix">
+                    <button type="button" name="" id="" onclick="onDeleteInput(${nbrRow})" style="border:none; background-color:white;">
+                        <img src="./public/Icônes/ic-supprimer.png" alt="" style="width:30px; height:30px;">
+                    </button>
+                    `;
+                divInputs.appendChild(newInput); 
+            }
+            if(selectOption.value==='multiple'){
+                newInput.innerHTML = `
+                    <label>reponse${nbrRow}</label>
+                    <input type="text" name="choixmultiple" id="reponse${nbrRow}" class="champInput">
+                    <input type="checkbox" name="checkbox[]" id="" class="inputChoix"> 
+                    <button type="button" name="" id="" onclick="onDeleteInput(${nbrRow})" style="border:none; background-color:white;">
+                        <img src="./public/Icônes/ic-supprimer.png" alt="" style="width:30px; height:30px;">
+                    </button>
+
+                    `;
+                divInputs.appendChild(newInput); 
+            }
+            if(selectOption.value==='texte'){
+                newInput.innerHTML = `
+                    <label>reponse${nbrRow}</label>
+                    <input type="text" name="choixtext" class="champInput"> 
+                    <button type="button" name="" id="" onclick="onDeleteInput(${nbrRow})" style="border:none; background-color:white;" >
+                    <img src="./public/Icônes/ic-supprimer.png" alt="" style="width:30px; height:30px;">
+                    </button>
+                    `;
+                divInputs.appendChild(newInput); 
+            }
+        }
+function onDeleteInput(n){
+    var target = document.getElementById('row_'+n);
+    setTimeout(function(){
+        target.remove();
+    }, 1500);
+    fadeOut('row_'+n)
+}
+function fadeOut(idTarget){
+    var target = document.getElementById(idTarget);
+    var effect=setInterval(function(){
+        if(!target.style.opacity){
+            target.style.opacity=1;
+        }
+        if(target.style.opacity>0){
+            target.style.opacity=0.1;
+        }else{
+            clearInterval(effect);
+        }
+    }, 200);
+}
+</script>

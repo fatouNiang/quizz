@@ -53,7 +53,7 @@ $user=$_SESSION['user'];
                             include('meilleurScore.php');
                         }
                     }else{
-                        include('topScore.php')
+                        include('topScore.php');
                     }
                     ?>
                 </div>

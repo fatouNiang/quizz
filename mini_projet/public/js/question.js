@@ -1,34 +1,30 @@
-// document.getElementById("questionnaire").addEventListener("submit", function(e){
-//     var error=""
-//     var inputs= document.getElementsByTagName("input")
-//         for ( input of inputs) {
-        
-//         }
-//     e.preventDefault();
-// })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function onAddInput() {
-    var divInputs = document.getElementById('inputs');
-    var newInput= document.createElement('div');
-    // newInput.setAttribute('class','row');
-    newInput.innerHTML=`
-        <label for="">Reponse 1</label>
-        <input type="text" name="reponse" id="" class="inputQ">
-        `;
-    divInputs.appendChild(newInput);
+const inputs=document.getElementsByTagName('input');
+for(input of inputs){
+    input.addEventListener("keyup", function(e){
+        if(e.target.hasAttribute("error")){
+            var idDivError=e.target.getAttribute("error")
+            document.getElementById(idDivError).innerText="";
+        }
+    })
 }
+
+document.getElementById('questionnaire').addEventListener("submit", function(){
+    const inputs=document.getElementsByTagName('input');
+    var error=false
+    for(input of inputs){
+        if(input.hasAttribute("error")){
+            var idDivError=input.getAttribute("error")
+                if(!input.value){
+                    document.getElementById(idDivError).innerText="ce champs est obligatoire";
+                    error=true  
+            }
+            
+        }
+    }
+if(error){
+    e.preventDefault();
+    return false
+}
+
+});
+
