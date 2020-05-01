@@ -6,9 +6,10 @@ $user=$_SESSION['user'];
 ?>
         <div id="frame">
             <div class="headerframe">
-                <div class="profil">
-                    <div><img src="<?='./public/Images/' .$user['avatar']?>" alt="" class="userProfil"></div>
-                   <div class="p"> <?php echo $user['prenom'].' '.$user['nom']; ?></div>
+                <div class="profil" style="background-image:url(./public/Images/<?=$user['avatar']?>);
+                    background-repeat:no-repeat; background-size:cover;">
+                    
+                   <div class="p"> <?php echo $user['prenom'].''.$user['nom']; ?></div>
                 </div>
                 <div class="haut">BIENVENU DANS LA PLATEFORME DE JEU QUIZZ<br>JOUER ET TESTER VOTRE NIVEAU DE CULTURE GENERALE</div>
                 <div class="deconnexion">

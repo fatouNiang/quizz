@@ -82,19 +82,18 @@ if (isset($_POST['creer_compte'])){
             <input type="password" name="pwdConfirm" placeholder="******" id="pwdConfirm" class="input" ><br>
             <div class="error-form" id="error-5"><?= $erreur ?></div>
             <label for="">Avatar</label>
-            <div class="btn-fichier"><input type="file" accept="image/png, image/jpeg" name="avatar" value="choisir un fichier" class="file" error="error-5" id="image" onchange="loadFile(event)" ><div class="tof_uplod"></div>
-            <img id="images"style="max-width:100px; height:100px; "/></div>
+            <div class="btn-fichier">
+                <input type="file" accept="image/png, image/jpeg" name="avatar" value="choisir un fichier"
+                class="" error="error-5" id="image" onchange="loadFile(event)" ></div>
             <div class="error-form" id="error-6"></div>
             <div class="btn-creerCompt"><input type="submit" name="creer_compte" value="Creer Compte" class="bouton"></div>
             
         </form>
     </div>
     <div class="partiAvatar">
-        <div class="avatarInscriptionJoueur"></div>
-                <!-- <img src="" class="avatar" alt=""> -->
-                <div class="nomJoueur">Avatar du joueur</div>
-
-            </div>
+        <div class="avatarInscriptionJoueur"><img id="images"style="width:160px; height:160px; border-radius:100px;"/></div>
+        <div class="nomJoueur">Avatar du joueur</div>
+    </div>
 </div>
 <script>
 var loadFile = function(event) {

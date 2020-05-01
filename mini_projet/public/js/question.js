@@ -8,7 +8,7 @@ for(input of inputs){
     })
 }
 
-document.getElementById('questionnaire').addEventListener("submit", function(){
+document.getElementById('questionnaire').addEventListener("submit", function(e){
     const inputs=document.getElementsByTagName('input');
     var error=false
     for(input of inputs){
@@ -22,7 +22,7 @@ document.getElementById('questionnaire').addEventListener("submit", function(){
         }
     }
 if(error){
-    e.preventDefault();
+    e.preventDefault()
     return false
 }
 

@@ -75,15 +75,17 @@ if (isset($_POST['creer_compte'])){
                     <label for="">Confirmer Password</label><br>
                     <input type="password" name="pwdConfirm" placeholder="******" id="pwdConfirm"  class="input"><br>
                     <label for="">Avatar</label>
-                    <div class="btn-fichier"><input type="file" name="avatar" value="choisir un fichier" error="error-5" id="image" class="bouton" onchange="loadFile(event)">
-                    <img id="images"style="max-width:100px; height:100px; "/></div>
+                    <div class="btn-fichier">
+                        <input type="file" name="avatar" value="choisir un fichier" accept="image/png, image/jpeg" error="error-5" id="image" 
+                         onchange="loadFile(event)">
+                    </div>
                     <div class="error-form" id="error-5"><?= $erreur?></div>
                     <div class="btn-creerCompt"><input type="submit" name="creer_compte" value="Creer Compte" class="bouton"></div>
                 </form>
             </div>
             <div class="partiAvatarAdmin">
-                <div class="avatarCreationAdmin"></div>
-                <!-- <img src="" class="avatar" alt=""> -->
+                <div class="avatarCreationAdmin"><img id="images"style="width:100px; height:100px; border-radius:100px; margin:top:20px;"/></div>
+                
                 <div class="nomAdmin">Avatar de l'administrateur</div>
             </div>
             <script src="./public/js/app.js"></script>

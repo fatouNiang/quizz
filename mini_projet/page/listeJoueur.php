@@ -45,11 +45,11 @@
 </div>
 <?php 
 if ($pageActuel <= 1){ ?>
-    <button><a href="index.php?lien=accuiel&bloc=listeJoueur&page=<?php echo $pageActuel+1;?>" class="btn-btn-primary" > suivant</a></button>
+    <button><a href="index.php?lien=accuiel&bloc=listeJoueur&page=<?=$pageActuel+1;?>" class="btn-btn-primary" > suivant</a></button>
 <?php 
 }else{?>
-   <div  class="btnSuiv"> <button ><a href="index.php?lien=accuiel&bloc=listeJoueur&page=<?php echo $pageActuel +1;?>" > suivant</a></button></div>
-   <button><a href="index.php?lien=accuiel&bloc=listeJoueur&page=<?php echo $pageActuel-1;?>" class="btn-btn-primary" > precedant</a></button>
+<div class="btnSuiv"><button><a href="index.php?lien=accuiel&bloc=listeJoueur&page=<?= $pageActuel +1;?>">suivant</a></button></div>
+<button><a href="index.php?lien=accuiel&bloc=listeJoueur&page=<?=$pageActuel-1;?>" class="btn-btn-primary">precedant</a></button>
 <?php            
      }
 ?>

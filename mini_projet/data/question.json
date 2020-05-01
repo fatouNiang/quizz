@@ -1,52 +1,56 @@
 [
     {
-        "question": "RFGHTJ",
-        "nbrPoint": "2",
-        "TypeReponse": "simple",
-        "choixsimple": "moi",
-        "radio": "on"
-    },
-    {
-        "question": "RFGHTJ",
-        "nbrPoint": "2",
-        "TypeReponse": "simple",
-        "choixsimple": "moi",
-        "radio": "on"
-    },
-    {
-        "question": "qsdfghjk",
-        "nbrPoint": "5",
-        "TypeReponse": "texte",
-        "choixtext": "orange digital center"
-    },
-    {
-        "question": "azertyui",
+        "question": "langage de programation",
         "nbrPoint": "4",
-        "TypeReponse": "simple",
-        "choixsimple": "moi",
-        "radio": "on"
-    },
-    {
-        "question": "dfghjkl mxcvbn dfghj",
-        "nbrPoint": "8",
         "TypeReponse": "multiple",
-        "choixmultiple": "clavier",
-        "checkbox": [
-            "on",
-            "on"
+        "reponse": [
+            "HTML",
+            "R",
+            "RUBY"
+        ],
+        "choix": [
+            "0",
+            "2"
         ]
     },
     {
-        "question": "yuuiioo",
-        "nbrPoint": "4",
-        "TypeReponse": "simple",
-        "choixsimple": "qsdfghjkl"
+        "question": "nombre de jour du mois",
+        "nbrPoint": "3",
+        "TypeReponse": "multiple",
+        "reponse": [
+            "6jours",
+            "30jours",
+            "31jours"
+        ],
+        "choix": [
+            "1",
+            "2"
+        ]
     },
     {
-        "question": "dfghjk",
-        "nbrPoint": "5",
+        "question": "je m'appelle",
+        "nbrPoint": "7",
+        "TypeReponse": "texte",
+        "reponse": "Fatou",
+        "choix": ""
+    },
+    {
+        "question": "fatimahbintou Rassoul est la fille d",
+        "nbrPoint": "4",
+        "TypeReponse": "texte",
+        "reponse": "prophete(psl)",
+        "choix": ""
+    },
+    {
+        "question": "localhost",
+        "nbrPoint": "3",
         "TypeReponse": "simple",
-        "choixsimple": "ey",
-        "radio": "on"
+        "reponse": [
+            "rester a la maison",
+            "aller dehors"
+        ],
+        "choix": [
+            "0"
+        ]
     }
 ]

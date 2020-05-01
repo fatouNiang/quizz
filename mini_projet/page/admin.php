@@ -1,4 +1,5 @@
-<?php is_connect();?>
+<?php is_connect();
+$user=$_SESSION['user'];?>
 <div class="cadre">
    <div class="header_cadre">
         <div class="Pgauche">CREEZ ET PARAMETTREZ VOS QUIZZ</div>
@@ -6,8 +7,9 @@
     </div>
     <div class="gauche">
         <div class="entete">
-            <div class="avatar"><img src="<?='./public/Images/'.$_SESSION['user']['avatar']?>" class="userProfil" alt="avatar"></div>
-            <div class="id"><?= $_SESSION['user']['prenom'].' '.$_SESSION['user']['nom']; ?></div>
+            <div class="avatar" style="background-image:url(./public/Images/<?=$user['avatar']?>);
+            background-repeat:no-repeat; background-size:cover;"></div>
+            <div class="id"><?= $user['prenom'].'<br>'.$user['nom']; ?></div>
         </div>
         <div class="liste">
             <div class="li"><a href="index.php?lien=accueil&bloc=listeQuestion" class="li_1">Liste des Questions</a><div class="icone1"></div></div>

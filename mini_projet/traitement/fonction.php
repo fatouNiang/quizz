@@ -123,6 +123,3 @@ function ADD_User($login){
         $_FILES['avatar'];
     }
 }
-function recupRep($rep, $checkbox){
-    
-}
