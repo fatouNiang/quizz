@@ -35,10 +35,10 @@
         "choix": ""
     },
     {
-        "question": "fatimahbintou Rassoul est la fille d",
+        "question": "Definition de ODC",
         "nbrPoint": "4",
         "TypeReponse": "texte",
-        "reponse": "prophete(psl)",
+        "reponse": "orange digital center",
         "choix": ""
     },
     {
@@ -48,6 +48,44 @@
         "reponse": [
             "rester a la maison",
             "aller dehors"
+        ],
+        "choix": [
+            "0"
+        ]
+    },
+    {
+        "question": "D'ou vient le corona ? ",
+        "nbrPoint": "5",
+        "TypeReponse": "simple",
+        "reponse": [
+            "la chine",
+            "l'Italy"
+        ],
+        "choix": [
+            "0"
+        ]
+    },
+    {
+        "question": "Quel est l'extension d'un fichier php?",
+        "nbrPoint": "5",
+        "TypeReponse": "simple",
+        "reponse": [
+            ".ph",
+            ".php",
+            ".js"
+        ],
+        "choix": [
+            "1"
+        ]
+    },
+    {
+        "question": "La date de l\u2019ind\u00e9pendance du senegal",
+        "nbrPoint": "5",
+        "TypeReponse": "simple",
+        "reponse": [
+            "1960",
+            "1965",
+            "1955"
         ],
         "choix": [
             "0"

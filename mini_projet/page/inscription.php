@@ -40,7 +40,7 @@ if (isset($_POST['creer_compte'])){
                         'pwd'=>$pwd,
                         'pwdConfirm'=>$pwdConfirm,
                         'avatar'=> $photo,
-                        'score'=> 1367,
+                        'score'=> 13,
                         'profil'=>'joueur'
                     ];
                     if(!empty($tabUser) && empty($erreur)){

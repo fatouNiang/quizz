@@ -3,8 +3,12 @@ is_connect();
 $user=$_SESSION['user'];
 $dataUser= getData();
 $nbrQuestion=parametres();
-$data=getQuestion();
-//   shuffle($data);
+// foreach ($data as $key => $value) {
+//     if($key['TypeReponse']=='simple'){
+//         echo "amoukh";
+//     }
+// }
+
 
 ?>
         <div id="frame">
@@ -21,10 +25,11 @@ $data=getQuestion();
             </div>
             <div class="sousCadre">
                 <div class="sousCadre1">
-                <?php 
+                <?php $data=getQuestion();
+                    // shuffle($data);
                     $nbrParPge=1;
                     $total=count($data);
-                    $nbrDePage=$nbrQuestion['nbrQuestion'];
+                    $nbrDePage=$nbrQuestion;
                     if(isset($_GET['page'])){
                         $pageActuelle=$_GET['page'];
                         if($pageActuelle>$nbrDePage){
@@ -37,27 +42,31 @@ $data=getQuestion();
                    $pageFinal= $pageDebut+ $nbrParPge-1;
                    for ($i=$pageDebut; $i <=$pageFinal ; $i++) { 
                        if(isset($data[$i])){?>
-                            <div class="question">Question: <?=$pageActuelle.'/'.$nbrQuestion['nbrQuestion'].'<br>'.$data[$i]['question']?>
+                            <div class="question">question <?=$pageActuelle.'/'.$nbrQuestion.'<br>'.
+                                $data[$i]['question']
+                            ?>
                             
                             </div>
-                            <div class="point"><?=$data[$i]['nbrPoint']?> point</div>
+                            <div class="point">
+                                <h5><?=$data[$i]['nbrPoint']?> point</h5>
+                            </div>
                             <div class="forms">
                                 <form action="" method="post">
                                 <?php if($data[$i]['TypeReponse']=='simple'){
                                     foreach ($data[$i]['reponse'] as $key => $val){
                                         echo'<br>';
-                                        echo'<input type="radio" name="choix" value="">';
+                                        echo'<input type="radio" value="" name="rep1[]">';
                                         echo $val;
                                     }
                                     
                                 }elseif($data[$i]['TypeReponse']=='multiple'){
                                     foreach ($data[$i]['reponse'] as $key => $val) {
                                         echo'<br>';
-                                        echo'<input type="checkbox" name="choix" value="">';
+                                        echo'<input type="checkbox" name="rep2[]">';
                                         echo $val;
                                     }
                                 }else{
-                                    echo'<input type="text" name="repnse" value="">';
+                                    echo'<input type="text" name="rep3">';
                                 }
                             ?>
                             </div>
@@ -103,65 +112,12 @@ $data=getQuestion();
                 </div>
                 <?php 
                 if (isset($_POST['terminer'])){
-                    $tab=[
-                        'choix'=>$_POST['choix'],
-                        'reponse'=>$val,
-                        'repSimple'=>$_POST['repnse'],
-                    ];
+                    var_dump($_POST);
+                    $rep1=$_POST['rep1'];
+                    $rep2=$_POST['rep2'];
+                    $rep3=$_POST['rep3'];
+                    $tab=[$rep1,$rep2,$rep3];
                     var_dump($tab);
-                    // foreach ($data as $key => $val) {
-                    //     echo $val['question'].'<br>';
-                    //     if($val['TypeReponse']=='simple'){
-                    //         foreach($val['reponse'] as $key => $value){
-                    //             $_SESSION['choix']=$_POST['choix'];
-                    //             echo'<span style="color:red;">'.$_SESSION['choix'].'</span>';
-                    //             if(in_array($key, $_SESSION['choix'])){
-                    //                 echo"<br> ";
-                    //                 echo'<input type="radio" checked="checked">';
-                    //                 echo $value;
-                    //             }else{
-                    //                 echo"<br> ";
-                    //                 echo" reponse fausse";
-                    //                 echo'<input type="radio" >';
-                    //                 echo $value;
-                    //             }
-                    //          }
-                            
-                    //     }elseif($val['TypeReponse']=='multiple'){
-                    //         foreach($val['reponse'] as $key => $value){
-                    //             $_SESSION['choix']=$_POST['choix'];
-                    //             var_dump('<span style="color:blue;">'.$_SESSION['choix'].'</span>');
-                    //             if(in_array($key, $_SESSION['choix'])){
-                    //                 echo"<br> ";
-                    //                 echo'<input type="checkbox" checked="checked">';
-                    //                 echo $value;
-                    //             }else{
-                    //                 echo"<br> ";
-                    //                 echo"mauvaise reponse ";
-                    //                 echo'<input type="checkbox">';
-                    //                 echo $value;
-                    //             }
-                    //          }
-                            
-                    // }else{
-            //             $_SESSION['reponse']=$_POST['repnse'];
-            //             var_dump('<span style="color:orange;">'.$_SESSION['choix'].'</span>');
-            //             foreach($val['reponse'] as $key => $value){
-            //                 if($_SESSION['reponse']==$value){
-            //                     echo 'reponse vrai';
-            //                     echo'<input type="text" >';
-            //                 }else{
-            //                     echo'inexacte ';
-            //                 }
-            //         }
-            //     }
-            // }
-                    
-                //   $_SESSION['choix']=$_POST['choix'];
-                //   $_SESSION['reponse']=$_POST['repnse'];
-
-                //   var_dump($_SESSION['choix']);
-                //   var_dump($_SESSION['reponse']);
                 }
                 ?>
                 <div class="sousCadre2">

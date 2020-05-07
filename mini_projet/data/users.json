@@ -15,7 +15,7 @@
         "pwd": "root",
         "pwdConfirm": "root",
         "avatar": "1525867538916 (1).jpg",
-        "score": 267,
+        "score": 0,
         "profil": "joueur"
     },
     {
@@ -25,7 +25,7 @@
         "pwd": "root",
         "pwdConfirm": "root",
         "avatar": "3757.jpg",
-        "score": 567,
+        "score": 0,
         "profil": "joueur"
     },
     {
@@ -35,7 +35,7 @@
         "pwd": "root",
         "pwdConfirm": "root",
         "avatar": "20180809_084522.jpg",
-        "score": 2367,
+        "score": 0,
         "profil": "joueur"
     },
     {
@@ -45,7 +45,7 @@
         "pwd": "root",
         "pwdConfirm": "root",
         "avatar": "\u202a+221 77 918 42 16\u202c 20180804_174708.jpg",
-        "score": 1367,
+        "score": 4,
         "profil": "joueur"
     },
     {
@@ -55,7 +55,7 @@
         "pwd": "root",
         "pwdConfirm": "root",
         "avatar": "3162.jpg",
-        "score": 1067,
+        "score": 0,
         "profil": "joueur"
     },
     {
@@ -74,7 +74,7 @@
         "pwd": "root",
         "pwdConfirm": "root",
         "avatar": "img-bg.jpg",
-        "score": 2367,
+        "score": 0,
         "profil": "joueur"
     },
     {
@@ -84,7 +84,7 @@
         "pwd": "root",
         "pwdConfirm": "root",
         "avatar": "img-bg.jpg",
-        "score": 1357,
+        "score": 3,
         "profil": "joueur"
     },
     {
@@ -94,7 +94,7 @@
         "pwd": "root",
         "pwdConfirm": "root",
         "avatar": "20180809_084522.jpg",
-        "score": 1360,
+        "score": 0,
         "profil": "joueur"
     },
     {
@@ -104,7 +104,7 @@
         "pwd": "root",
         "pwdConfirm": "root",
         "avatar": "logo-QuizzSA.png",
-        "score": 867,
+        "score": 2,
         "profil": "joueur"
     },
     {
@@ -114,7 +114,7 @@
         "pwd": "root",
         "pwdConfirm": "root",
         "avatar": "img5.jpg",
-        "score": 1167,
+        "score": 1,
         "profil": "joueur"
     },
     {
@@ -124,7 +124,7 @@
         "pwd": "root",
         "pwdConfirm": "root",
         "avatar": "3162.jpg",
-        "score": 1267,
+        "score": 0,
         "profil": "joueur"
     },
     {
@@ -134,7 +134,7 @@
         "pwd": "root",
         "pwdConfirm": "root",
         "avatar": "3757.jpg",
-        "score": 1367,
+        "score": 2,
         "profil": "joueur"
     },
     {
@@ -144,7 +144,7 @@
         "pwd": "root",
         "pwdConfirm": "root",
         "avatar": "img-bg.jpg",
-        "score": 1367,
+        "score": 2,
         "profil": "joueur"
     },
     {
@@ -154,7 +154,7 @@
         "pwd": "root",
         "pwdConfirm": "root",
         "avatar": "Screenshot_20190221-212646.png",
-        "score": 1367,
+        "score": 0,
         "profil": "joueur"
     },
     {
@@ -165,5 +165,45 @@
         "pwdConfirm": "root",
         "avatar": "fatimah.png",
         "profil": "admin"
+    },
+    {
+        "nom": "SARR",
+        "prenom": "Couraa Gueye",
+        "login": "coura",
+        "pwd": "root",
+        "pwdConfirm": "root",
+        "avatar": "IMG-20170410-WA0022.jpg",
+        "score": 3,
+        "profil": "joueur"
+    },
+    {
+        "nom": "THIAM",
+        "prenom": "Mor",
+        "login": "noreyni",
+        "pwd": "root",
+        "pwdConfirm": "root",
+        "avatar": "IMG-20180205-WA0034.jpg",
+        "score": 0,
+        "profil": "joueur"
+    },
+    {
+        "nom": "DIOP",
+        "prenom": "MATY",
+        "login": "timachou",
+        "pwd": "root",
+        "pwdConfirm": "root",
+        "avatar": "20180808_095500.jpg",
+        "score": 1,
+        "profil": "joueur"
+    },
+    {
+        "nom": "DIOP",
+        "prenom": "mouhamadou habib",
+        "login": "diop",
+        "pwd": "root",
+        "pwdConfirm": "root",
+        "avatar": "3f4402e22e7946e49ef4b1d282fc2e29.jpg",
+        "score": 2,
+        "profil": "joueur"
     }
 ]

@@ -7,9 +7,8 @@ $user=$_SESSION['user'];?>
     </div>
     <div class="gauche">
         <div class="entete">
-            <div class="avatar" style="background-image:url(./public/Images/<?=$user['avatar']?>);
-            background-repeat:no-repeat; background-size:cover;"></div>
-            <div class="id"><?= $user['prenom'].'<br>'.$user['nom']; ?></div>
+            <div class="avatar"><img src="./public/Images/<?=$user['avatar']?>" alt="" style="width:100px; height:100px; border-radius:100px;"></div>
+            <div><?= $user['prenom'].'<br>'.$user['nom']; ?></div>
         </div>
         <div class="liste">
             <div class="li"><a href="index.php?lien=accueil&bloc=listeQuestion" class="li_1">Liste des Questions</a><div class="icone1"></div></div>

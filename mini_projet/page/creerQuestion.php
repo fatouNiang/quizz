@@ -1,39 +1,8 @@
 <?php
 $message='';
  if(isset($_POST['enregistrer'])){
-    if(!empty($_POST) && $_POST['nbrPoint']>=1){
-
-        // $tab=[];
-        // unset($_POST['enregistrer']);
-        // $tab=$_POST;
-        // $repValide=[];
-        // $repInvalide=[];
-        // if($_POST['TypeReponse']=='simple'){
-        //     $choixsimple=$_POST['choixsimple'];
-        //     if(isset($_POST['choix'])){
-        //         $repValide[]=$choixsimple;
-        //     }else{
-        //         $repInvalide[]=$choixsimple;
-        //     }
-        // }elseif($_POST['TypeReponse']=='multiple'){
-        //     $choixmultiple=$_POST['choixmultiple'];
-        //     if($choixmultiple==$_POST['choix']){
-        //         $repValide[]=$choixmultiple;
-        //     }else{
-        //         $repInvalide[]=$choixmultiple;
-        //     }
-        // }else{
-        //     $choixText=$_POST['choixText'];
-        //     $repValide[]=$choixText;
-        // }
-        $repValide=[];
-        // foreach($_POST['choix'] as $choix) { 
-        //     // if()
-        //      array_push($repValide, $_POST['reponse'],$choix); 
-        //     //  print_r ($repValide);
-        // }
+    if(!empty($_POST) && $_POST['nbrPoint']>=1){      
         $TypeReponse=$_POST['TypeReponse'];
-
         if($TypeReponse=='multiple'){
             $choix=$_POST['choix'];
         }elseif($TypeReponse=='simple'){
@@ -140,7 +109,6 @@ if(error){
                     <button type="button" name="" id="" onclick="onDeleteInput(${nbrRow})" style="border:none; background-color:white;">
                         <img src="./public/Icônes/ic-supprimer.png" alt="" style="width:30px; height:30px;">
                     </button>
-
                     `;
                 divInputs.appendChild(newInput); 
             }

@@ -20,7 +20,7 @@ $data= getData();
                             if($key<5){?>
                                 <td class="tableScore"><?= $joueurs['prenom'] ?></td>
                                 <td class="tableScore"><?= $joueurs['nom'] ?></td>
-                                <td class="tableScore"><?= $joueurs['score']."pts" ?></td></tr>
+                                <td class="tableScore scoreTop"><?= $joueurs['score']."pts" ?></td></tr>
                                 <?php 
                                 } }
                                 ?>

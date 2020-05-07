@@ -10,6 +10,13 @@ function getQuestion($file="question"){
     $data= json_decode($data, true);
     return $data;
 }
+function parametres($file="parametres"){
+    $data=file_get_contents("./data/".$file.".json");
+    $data=json_decode($data, true);
+    return $data;
+}
+// une fonction qui gere la connexion a notre application
+
 function connexion($login,$pwd){
     $users=getData();
     foreach ($users as $key => $user) {
@@ -32,12 +39,34 @@ function is_connect(){
     }
 }
 
-
 function deconnexion(){
     unset($_SESSION['user']);
     unset($_SESSION['statut']);
     session_destroy();
 }
+
+function pagination(){
+    $dataUser= getData();
+    nbrParPge=1;
+                    $total=count($data);
+                    $nbrDePage=$nbrQuestion['nbrQuestion'];
+                    if(isset($_GET['page'])){
+                        $pageActuelle=$_GET['page'];
+                        if($pageActuelle>$nbrDePage){
+                            $pageActuelle=$nbrDePage;
+                        }
+                    }else{
+                        $pageActuelle=1;
+                    }
+                   $pageDebut=($pageActuelle-1)*$nbrParPge;
+                   $pageFinal= $pageDebut+ $nbrParPge-1;
+                   for ($i=$pageDebut; $i <=$pageFinal ; $i++) { 
+}
+
+// function jeux() {
+//     $question=getQuestion();
+//     var_dump($question);
+// }
 function avatar(){
     $erreur="";
         $fileName=$_FILES['avatar']['name'];

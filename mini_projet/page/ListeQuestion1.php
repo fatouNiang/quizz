@@ -25,7 +25,9 @@
             //     if(isset($data[$i])){?>
                 <?php foreach($data as $val) ?>
                     <div class="Titrequestion"><?=$val['question']?></div>
-                    <div class="rep"><?php ?></div> 
+                    <div class="rep"><?php 
+                    if($data[$i][''])
+                    ?></div> 
 
 
 
