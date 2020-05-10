@@ -47,7 +47,7 @@ function deconnexion(){
 
 function pagination(){
     $dataUser= getData();
-    nbrParPge=1;
+    $nbrParPge=1;
                     $total=count($data);
                     $nbrDePage=$nbrQuestion['nbrQuestion'];
                     if(isset($_GET['page'])){
@@ -60,7 +60,9 @@ function pagination(){
                     }
                    $pageDebut=($pageActuelle-1)*$nbrParPge;
                    $pageFinal= $pageDebut+ $nbrParPge-1;
-                   for ($i=$pageDebut; $i <=$pageFinal ; $i++) { 
+                   for ($i=$pageDebut; $i <=$pageFinal ; $i++) {
+                       
+                   } 
 }
 
 // function jeux() {

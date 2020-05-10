@@ -11,7 +11,7 @@ $user=$_SESSION['user'];?>
             <div><?= $user['prenom'].'<br>'.$user['nom']; ?></div>
         </div>
         <div class="liste">
-            <div class="li"><a href="index.php?lien=accueil&bloc=listeQuestion" class="li_1">Liste des Questions</a><div class="icone1"></div></div>
+            <div class="li"><a href="index.php?lien=accueil&bloc=ListeQuestion" class="li_1">Liste des Questions</a><div class="icone1"></div></div>
             <div class="li"><a href="index.php?lien=accueil&bloc=creerAdmin" class="li_1">Creer Admin</a><div class="icone2"></div></div>
             <div class="li"><a href="index.php?lien=accueil&bloc=listeJoueur" class="li_1">Liste Joueur</a><div class="icone3"></div></div>
             <div class="li"><a href="index.php?lien=accueil&bloc=creerQuestion"class="li_1">Creer Questions</a><div class="icone4"></div></div>
@@ -21,14 +21,14 @@ $user=$_SESSION['user'];?>
        <?php
         if(isset($_GET['bloc'])){
             $url=$_GET['bloc'];
-            if ($url=='listeQuestion') {
-                include('listeQuestion.php');
+            if ($url=='ListeQuestion') {
+                include('ListeQuestion.php');
             }elseif($url=='creerAdmin'){
                 include('creerAdmin.php');
             }elseif($url=='listeJoueur'){
                 include('listeJoueur.php');
             }elseif($url=='creerQuestion'){
-                include('creerquestion.php');
+                include('creerQuestion.php');
             }
         }else{
             include('listeJoueur.php');

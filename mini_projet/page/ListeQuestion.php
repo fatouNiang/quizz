@@ -9,17 +9,21 @@ if(isset($_POST['ok'])){
          $data=json_encode($data);
          file_put_contents("./data/parametres.json",$data);
     }
+      
 }
+$param=parametres();
+$nbrQuestion=$param['nbrQuestion'];
+
 ?>
 <div>
     <div class="nbrQuestion">
     <span style="color:red" id="erreur"></span>
         <form action="" method="post" id="form">
-        Nombre de question/jeu <input type="number" name="nbr" value="<?=$data['nbrQuestion']?>" id="nbr" class="InputnbrQuestion" onkeyup="valider()">
+        Nombre de question/jeu <input type="number" name="nbr" value="<?=$nbrQuestion?>" id="nbr" class="InputnbrQuestion" onkeyup="valider()">
             <input type="submit" name="ok" value="ok">
         </form>    
     </div>
-    <div class="listQuestion">
+    <div class="listQuestion" >
         <?php
             $data=getQuestion();
             $nbrParpage=5;

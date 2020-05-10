@@ -90,5 +90,31 @@
         "choix": [
             "0"
         ]
+    },
+    {
+        "question": "la capital du senegal",
+        "nbrPoint": "6",
+        "TypeReponse": "texte",
+        "reponse": "Dakar",
+        "choix": ""
+    },
+    {
+        "question": "la mecque est le lieu de culte :",
+        "nbrPoint": "5",
+        "TypeReponse": "simple",
+        "reponse": [
+            "des musulmans",
+            "des boudistes"
+        ],
+        "choix": [
+            "0"
+        ]
+    },
+    {
+        "question": "debut de la premiere guerre mondiale",
+        "nbrPoint": "5",
+        "TypeReponse": "texte",
+        "reponse": "1914",
+        "choix": ""
     }
 ]

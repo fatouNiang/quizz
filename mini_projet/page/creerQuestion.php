@@ -21,7 +21,8 @@ $message='';
         $data[]=$tab;
         $data=json_encode($data);
         file_put_contents("./data/question.json", $data);
-        echo'<p style="red">donnee enregistre avec succés</p>';
+        header('location:./index.php?lien=accueil&bloc=listeQuestion');
+
     }else{
         $message='Tous les champs sont obligatoires';
     }

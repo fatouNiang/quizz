@@ -1,10 +1,10 @@
 <?php
 is_connect();
-$user=$_SESSION['user'];
 $dataUser= getData();
+$user=$_SESSION['user'];
 $nbrQuestion=parametres();
+$nbrQuestion=$nbrQuestion['nbrQuestion'];
 $data=getQuestion();
-//   shuffle($data);
 
 ?>
         <div id="frame">
@@ -19,151 +19,186 @@ $data=getQuestion();
                     <button class="bdecon"><a href="index.php?statut=logout"> Déconnexion</a></button>
                 </div>
             </div>
+
             <div class="sousCadre">
-                <div class="sousCadre1">
-                <?php 
-                    $nbrParPge=1;
-                    $total=count($data);
-                    $nbrDePage=$nbrQuestion['nbrQuestion'];
-                    if(isset($_GET['page'])){
-                        $pageActuelle=$_GET['page'];
-                        if($pageActuelle>$nbrDePage){
-                            $pageActuelle=$nbrDePage;
-                        }
-                    }else{
-                        $pageActuelle=1;
-                    }
-                   $pageDebut=($pageActuelle-1)*$nbrParPge;
-                   $pageFinal= $pageDebut+ $nbrParPge-1;
-                   for ($i=$pageDebut; $i <=$pageFinal ; $i++) { 
-                       if(isset($data[$i])){?>
-                            <div class="question">Question: <?=$pageActuelle.'/'.$nbrQuestion['nbrQuestion'].'<br>'.$data[$i]['question']?>
-                            
-                            </div>
-                            <div class="point"><?=$data[$i]['nbrPoint']?> point</div>
-                            <div class="forms">
-                                <form action="" method="post">
-                                <?php if($data[$i]['TypeReponse']=='simple'){
-                                    foreach ($data[$i]['reponse'] as $key => $val){
-                                        echo'<br>';
-                                        echo'<input type="radio" name="choix" value="">';
-                                        echo $val;
-                                    }
+            <div class="sousCadre1">
+            <?php
+                if (isset($_GET['page'])) {
+                    $i=$_GET['page'];
+                }else{
+                    $i=1;
+                    $_SESSION['question_id']=[];
+                }
+
+                if ($i<=$nbrQuestion) {
+                    
+                //    precedent
+                    if (isset($_SESSION['tabindex'][$i])) {
+
+                        $cle=(int)$_SESSION['tabindex'][$i][0];
+                        echo $cle;
+                        ?>
+
+                        <div class="question">Question: <?php echo $data[$cle]['question']; ?>   </div>
+                        <div class="point"><?php echo $data[$cle]['nbrPoint']; ?> point</div>
+                        <div class="forms">
+                            <form action="./traitement/Traitementjeux.php" method="post">
+                                <?php
                                     
-                                }elseif($data[$i]['TypeReponse']=='multiple'){
-                                    foreach ($data[$i]['reponse'] as $key => $val) {
-                                        echo'<br>';
-                                        echo'<input type="checkbox" name="choix" value="">';
-                                        echo $val;
+                                    echo "<input type='hidden' name='type_reponse' value='".$data[$cle]['TypeReponse']."' />";
+                                    echo "<input type='hidden' name='cle' value='$cle' />";
+                                    echo "<input type='hidden' name='page' value='$i'  />";
+                                    if ($data[$cle]['TypeReponse']=="simple") {
+                                        foreach ($data[$cle]['reponse'] as $key => $value) {
+                                            if ($key==$_SESSION['tabindex'][$i][1]) {
+                                                echo "<input type='radio' name='radio' value='$key' checked />";
+                                            }else{
+                                                echo "<input type='radio' name='radio' value='$key' />";
+                                            }
+                                            echo $value;
+                                            echo "</br>";
+                                        }
+                                    }elseif ($data[$cle]['TypeReponse']=="multiple") {
+                                        
+                                        foreach ($data[$cle]['reponse'] as $key => $value) {
+                                            if (in_array($key,$_SESSION['tabindex'][$i][1])) {
+                                                echo "<input type='checkbox' name='check[]' value='$key' checked />";
+                                            }else{
+                                                echo "<input type='checkbox' name='check[]' value='$key' />";
+                                            }                                            
+                                            echo $value;
+                                            echo "</br>";
+                                        }
+                                    }else{
+                                    
+                                        echo "<input type='text' name='texte' value='".$_SESSION['tabindex'][$i][1]."' />";
+                                    }
+                                  ?>
+                                <div class="precedent">
+                                    <input type="submit" class="dep" name="precedent" value="precedent">
+                                </div>
+                                <div class="suivant">
+                                    <input type="submit" class="dep" name="submit" value="Suivant">
+                                </div>
+                            </form>
+
+
+                        <?php                
+                    // partie suivant
+                    }else {       ?>
+
+            
+               
+                    <?php
+                     $cle=array_rand($data); 
+                     while (in_array($cle,$_SESSION['question_id'])) {
+                        $cle=array_rand($data); 
+                     }
+                    ?>
+                    <div class="question">Question: <br> <?php echo $data[$cle]['question']; ?>   </div>
+                    <div class="point"><?php echo $data[$cle]['nbrPoint']; ?> point</div>
+                    <div class="forms">
+                        <form action="./traitement/Traitementjeux.php" method="post">
+                            <?php
+                                
+                                echo "<input type='hidden' name='type_reponse' value='".$data[$cle]['TypeReponse']."' />";
+                                echo "<input type='hidden' name='cle' value='$cle' />";
+                                echo "<input type='hidden' name='page' value='$i'  />";
+                                if ($data[$cle]['TypeReponse']=="simple") {
+                                    foreach ($data[$cle]['reponse'] as $key => $value) {
+                                        echo "<input type='radio' name='radio' value='$key' />";
+                                        echo $value;
+                                        echo "</br>";
+                                    }
+                                }elseif ($data[$cle]['TypeReponse']=="multiple") {
+                                    foreach ($data[$cle]['reponse'] as $key => $value) {
+                                        echo "<input type='checkbox' name='check[]' value='$key' />";
+                                        echo $value;
+                                        echo "</br>";
                                     }
                                 }else{
-                                    echo'<input type="text" name="repnse" value="">';
+                                    echo "<input type='text' name='texte'/>";
                                 }
-                            ?>
-                            </div>
-                            <?php }
-                            } ?>
-                   <div class="btn">
-                    <?php
-                    if($pageActuelle<=1){?>
-                        <div class="suivant">
-                            <button class="dep">
-                            <a href="index.php?lien=jeux&page=<?=$pageActuelle+1?>">Suivant</a>
-                            </button>
-                        </div>
-                    <?php 
-                    }elseif($pageActuelle==$nbrDePage){?>
-                        <div class="precedent">
-                                <button class="dep">
-                                <a href="index.php?lien=jeux&page=<?=$pageActuelle-1?>">precedent</a>
-                                </button>
+                              ?>
+                              <div class="precedent">
+                                <input type="submit" class="dep" name="precedent" value="precedent">
                             </div>
                             <div class="suivant">
-                            <input class="dep" type="submit" name="terminer" value="terminer">
-                                <a href="index.php?lien=jeux&page=<?=$pageActuelle+1?>"></a>
-                            <!-- </button> -->
+                                <input type="submit" class="dep" name="submit" value="Suivant">
                             </div>
-                    <?php 
-                     }else{ ?>
-                        <div class="precedent">
-                            <button class="dep">
-                            <a href="index.php?lien=jeux&page=<?=$pageActuelle-1?>">precedent</a>
-                            </button>
-                        </div>
-                        <div class="suivant">
-                        <button class="dep">
-                            <a href="index.php?lien=jeux&page=<?=$pageActuelle+1?>">Suivant</a>
-                        </button>
-                        </div>
+                            
                         </form>
-                    <?php 
-                     }
-                ?>
+                        <?php 
+                         } 
+                        ?>
                     </div>
                 </div>
-                <?php 
-                if (isset($_POST['terminer'])){
-                    $tab=[
-                        'choix'=>$_POST['choix'],
-                        'reponse'=>$val,
-                        'repSimple'=>$_POST['repnse'],
-                    ];
-                    var_dump($tab);
-                    // foreach ($data as $key => $val) {
-                    //     echo $val['question'].'<br>';
-                    //     if($val['TypeReponse']=='simple'){
-                    //         foreach($val['reponse'] as $key => $value){
-                    //             $_SESSION['choix']=$_POST['choix'];
-                    //             echo'<span style="color:red;">'.$_SESSION['choix'].'</span>';
-                    //             if(in_array($key, $_SESSION['choix'])){
-                    //                 echo"<br> ";
-                    //                 echo'<input type="radio" checked="checked">';
-                    //                 echo $value;
-                    //             }else{
-                    //                 echo"<br> ";
-                    //                 echo" reponse fausse";
-                    //                 echo'<input type="radio" >';
-                    //                 echo $value;
-                    //             }
-                    //          }
+                <?php
+                }else{
+                    echo " Le jeu est terminé";
+                    echo'<div style="height:100%;overflow-y:scroll;">';
+                   
+                        for ($i=1; $i <$nbrQuestion ; $i++) {
                             
-                    //     }elseif($val['TypeReponse']=='multiple'){
-                    //         foreach($val['reponse'] as $key => $value){
-                    //             $_SESSION['choix']=$_POST['choix'];
-                    //             var_dump('<span style="color:blue;">'.$_SESSION['choix'].'</span>');
-                    //             if(in_array($key, $_SESSION['choix'])){
-                    //                 echo"<br> ";
-                    //                 echo'<input type="checkbox" checked="checked">';
-                    //                 echo $value;
-                    //             }else{
-                    //                 echo"<br> ";
-                    //                 echo"mauvaise reponse ";
-                    //                 echo'<input type="checkbox">';
-                    //                 echo $value;
-                    //             }
-                    //          }
-                            
-                    // }else{
-            //             $_SESSION['reponse']=$_POST['repnse'];
-            //             var_dump('<span style="color:orange;">'.$_SESSION['choix'].'</span>');
-            //             foreach($val['reponse'] as $key => $value){
-            //                 if($_SESSION['reponse']==$value){
-            //                     echo 'reponse vrai';
-            //                     echo'<input type="text" >';
-            //                 }else{
-            //                     echo'inexacte ';
-            //                 }
-            //         }
-            //     }
-            // }
-                    
-                //   $_SESSION['choix']=$_POST['choix'];
-                //   $_SESSION['reponse']=$_POST['repnse'];
+                            echo "<div style='border:1px dashed black; text-align:center;'>";
+                            $index=$_SESSION['tabindex'][$i];
+                            echo "<h3>".$data[$index[0]]['question']." </h3>";
+                            if($data[$index[0]]['TypeReponse']=='simple'){
+                                foreach ($data[$index[0]]['reponse'] as $key => $value) {
+                                    $choix=$data[$index[0]]['choix'][0];
+                                    if($key==$index[1]){
+                                        echo ' <span style="color:red">reponse exacte </span>';
+                                        echo ' <input type="radio" name="" checked="checked" disabled>';
+                                        echo $value;
+                                        echo'<br>';
+                                    }else{
+                                        // echo '<span style="color:blue";>reponse invalide</span> ';
+                                        echo ' <input type="radio" name="" id="" disabled>';
+                                        echo $value;
+                                        echo'<br>';
+                                    }
+                                }
+                            }
+                            elseif($data[$index[0]]['TypeReponse']=='multiple'){
+                                echo "Vos Réponses sont : </br> ";
+                                foreach ($data[$index[0]]['reponse'] as $key => $value) {
+                                    $choix=$data[$index[0]]['choix'];
+                                    
+                                    if(in_array($key,$index[1])){
+                                        echo ' <input type="checkbox" name="" id="" checked disabled>';
+                                    }else{
+                                        echo ' <input type="checkbox" name="" id="" disabled>';
+                                        
+                                    }
+                                    echo $value;
+                                        echo'<br>';
+                                }
+                                if($data[$index[0]]['choix']==$index[1]){
+                                    echo "Bonne reponse";
+                                }else{
+                                    echo "Faux";
+                                }
+                            }else{
+                                echo "Votre Réponse : ",$index[1];
+                                if ($index[1]==$data[$index[0]]['reponse']) {
+                                    echo "<span style='color:green'> est correcte</span>";
+                                }else{
+                                    echo "<span style='color:red'> est incorrecte</span> </br>";
+                                    echo "La bonne reponse est : ".$data[$index[0]]['reponse'];
+                                }
+                            }
 
-                //   var_dump($_SESSION['choix']);
-                //   var_dump($_SESSION['reponse']);
-                }
+                            echo "</div>";
+                        }
+                    }
+                    // foreach ($dataUser as $key => $value) {
+                    //    echo $value;
+                    // }
+
                 ?>
+            </div> 
+            
+            
                 <div class="sousCadre2">
                     <div class="topEtMeilleurScore"> 
                         <div class="TS"><a href="index.php?lien=jeux&score=topScore" class="a">Top Scores</a></div>
